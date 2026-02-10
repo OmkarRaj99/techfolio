@@ -216,7 +216,79 @@
             </div>
         </div>
     </section>
+<section id="plm-lab" class="section py-5" style="background: #e9ecef;">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-5"><i class="fas fa-flask text-primary"></i> PLM Engineering Lab</h2>
+        
+        <div class="row g-4">
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="card h-100 border-0 shadow-lg">
+                    <div class="card-header bg-dark text-white">
+                        <i class="fas fa-code"></i> Metadata & XML Schema Handling
+                    </div>
+                    <div class="card-body">
+                        <h5 class="fw-bold">Designation Tag & XML Automation</h5>
+                        <p class="text-muted">Developed custom logic to handle complex XML tag creation for data exchange between Teamcenter and external ERP systems.</p>
+                        <ul class="small">
+                            <li><strong>BMIDE:</strong> Defined custom business objects and attributes for unique "Designation" tagging.</li>
+                            <li><strong>XML Creation:</strong> Wrote SOA-based utilities to generate structured XML files following PLM Schema standards.</li>
+                            <li><strong>Handler:</strong> Attached "EPM-check-item-attributes" to validate tags before export.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="card h-100 border-0 shadow-lg">
+                    <div class="card-header bg-primary text-white">
+                        <i class="fas fa-cube"></i> STEP to CAD Integration
+                    </div>
+                    <div class="card-body">
+                        <h5 class="fw-bold">Automated Translation Workflow</h5>
+                        <p class="text-muted">Engineered a workflow modification that triggers automated STEP file generation upon CAD Part release.</p>
+                        <ul class="small">
+                            <li><strong>WF Designer:</strong> Created custom Workflow Templates with conditional branching.</li>
+                            <li><strong>Translator:</strong> Integrated Dispatcher Service to handle STEP-to-CAD conversion tasks.</li>
+                            <li><strong>Validation:</strong> Custom ITK handler to verify geometry integrity post-translation.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="p-4 bg-white rounded shadow-sm border-start border-info border-5">
+                    <h4 class="fw-bold"><i class="fas fa-terminal"></i> The Deployment Pipeline (ITK/C++)</h4>
+                    <p class="text-muted">My process for custom handler development:</p>
+                    
+                    <div class="d-flex flex-wrap justify-content-between text-center mt-4">
+                        <div class="p-3" data-aos="zoom-in">
+                            <div class="rounded-circle bg-light border p-3 mb-2" style="width:70px; height:70px; margin:auto;"><i class="fas fa-pen-nib text-primary mt-2"></i></div>
+                            <h6>Write ITK</h6>
+                        </div>
+                        <div class="p-3" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="rounded-circle bg-light border p-3 mb-2" style="width:70px; height:70px; margin:auto;"><i class="fas fa-sync text-primary mt-2"></i></div>
+                            <h6>Compile .so/.dll</h6>
+                        </div>
+                        <div class="p-3" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="rounded-circle bg-light border p-3 mb-2" style="width:70px; height:70px; margin:auto;"><i class="fas fa-project-diagram text-primary mt-2"></i></div>
+                            <h6>WF Designer</h6>
+                        </div>
+                        <div class="p-3" data-aos="zoom-in" data-aos-delay="300">
+                            <div class="rounded-circle bg-light border p-3 mb-2" style="width:70px; height:70px; margin:auto;"><i class="fas fa-vial text-primary mt-2"></i></div>
+                            <h6>Integration Testing</h6>
+                        </div>
+                        <div class="p-3" data-aos="zoom-in" data-aos-delay="400">
+                            <div class="rounded-circle bg-success text-white p-3 mb-2" style="width:70px; height:70px; margin:auto;"><i class="fas fa-check mt-2"></i></div>
+                            <h6>Production Deploy</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
     <section id="teamcenter" class="section py-5">
         <div class="container">
             <h2 class="text-center fw-bold mb-5">PLM Project Repository</h2>
