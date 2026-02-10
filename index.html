@@ -3,199 +3,280 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Omkar Rajendra Deshmukh</title>
+    <title>Omkar Rajendra Deshmukh | PLM Solution Developer</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <style>
+        :root {
+            --tc-blue: #005f9e; /* Siemens-ish Blue */
+            --tc-dark: #1a1c1e;
+            --tc-accent: #00ffd5;
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
-            background: #f8f9fa;
-            color: #343a40;
-            scroll-behavior: smooth;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f4f7f9;
+            color: #333;
+            overflow-x: hidden;
         }
+
+        /* Hero Section with Moving Background */
         .hero {
-            background: linear-gradient(to bottom, #007bff, #0056b3);
+            background: linear-gradient(-45deg, #004a80, #005f9e, #051937, #008793);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
             color: #fff;
-            padding: 60px 0;
+            padding: 120px 0 80px;
             text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
         }
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: bold;
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-        .section {
-            padding: 60px 0;
+
+        /* Terminal Window UI */
+        .terminal-window {
+            background: #2d2d2d;
+            border-radius: 10px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            overflow: hidden;
+            color: #dcdccc;
+            font-family: 'Courier New', monospace;
+            text-align: left;
         }
-        .skills .progress {
-            height: 25px;
+
+        .terminal-header {
+            background: #3d3d3d;
+            padding: 10px;
+            display: flex;
+            gap: 8px;
         }
-        .certifications a {
-            text-decoration: none;
-            color: #007bff;
-        }
-        .certifications a:hover {
-            text-decoration: underline;
-        }
-        footer {
-            background: #343a40;
-            color: #fff;
-            text-align: center;
+
+        .dot { height: 12px; width: 12px; border-radius: 50%; display: inline-block; }
+        .red { background: #ff5f56; } .yellow { background: #ffbd2e; } .green { background: #27c93f; }
+
+        /* Workflow Steps Styling */
+        .workflow-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             padding: 20px 0;
+            position: relative;
         }
-        .nav-link {
-            color: #fff;
-            text-transform: uppercase;
+
+        .workflow-step {
+            background: white;
+            border: 2px solid var(--tc-blue);
+            padding: 15px;
+            border-radius: 8px;
+            z-index: 2;
+            width: 18%;
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-        .nav-link:hover {
-            color: #ffc107;
+
+        .workflow-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--tc-blue);
+            z-index: 1;
+        }
+
+        /* Project Cards */
+        .project-card {
+            border: none;
+            border-left: 5px solid var(--tc-blue);
+            transition: transform 0.3s;
+            background: #fff;
+            margin-bottom: 20px;
+        }
+
+        .project-card:hover {
+            transform: translateX(10px);
+            background: #eef7ff;
+        }
+
+        .nav-link:hover { color: var(--tc-accent) !important; }
+
+        .skill-badge {
+            background: var(--tc-blue);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 5px;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#"> :) </a>
+            <a class="navbar-brand" href="#"><i class="fas fa-cogs text-info"></i> OR Deshmukh</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Console</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Workflow</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#teamcenter">Projects</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <div class="hero">
-        <h1>Omkar Rajendra Deshmukh</h1>
-        <p>Solution Developer | Full-Stack Enthusiast | Automobile Engineer </p>
-        <a href="#contact" class="btn btn-warning mt-3">Contact Me</a>
+        <div class="container" data-aos="zoom-in">
+            <h1 class="display-3 fw-bold">Omkar Rajendra Deshmukh</h1>
+            <p class="lead mt-3">Architecting PLM Solutions | ITK & SOA Customization | EBOM Specialist</p>
+            <div class="mt-4">
+                <span class="badge bg-light text-dark p-2">Teamcenter 14.x / AWC</span>
+                <span class="badge bg-light text-dark p-2">Java / C++</span>
+                <span class="badge bg-light text-dark p-2">BMIDE</span>
+            </div>
+            <a href="#contact" class="btn btn-warning btn-lg mt-5 px-5">Initialize Contact</a>
+        </div>
     </div>
 
-    <!-- About Section -->
-    <section id="about" class="section">
+    <section id="about" class="section py-5">
         <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="terminal-window">
+                        <div class="terminal-header">
+                            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                            <small class="ms-2 text-secondary">bash — omkar_profile.sh</small>
+                        </div>
+                        <div class="p-4">
+                            <p><span class="text-success">omkar@plm-dev:~$</span> cat about_me.txt</p>
+                            <p class="text-info">"Experienced Teamcenter Developer with a deep focus on enterprise PLM systems. I bridge the gap between complex engineering requirements and scalable software solutions."</p>
+                            <p><span class="text-success">omkar@plm-dev:~$</span> grep "specialties" skills.log</p>
+                            <ul>
+                                <li>ITK & SOA Customization</li>
+                                <li>BMIDE Data Modeling</li>
+                                <li>EBOM/MBOM Alignment</li>
+                                <li>Automotive PLM Workflows</li>
+                            </ul>
+                            <p><span class="text-success">omkar@plm-dev:~$</span> <span class="blink">_</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-lg-5" data-aos="fade-left">
+                    <h2 class="fw-bold mb-4">Solution Developer</h2>
+                    <p class="text-muted">Currently driving digital transformation at <strong>Tata Technologies</strong>. I specialize in automating Change Notice (CN) processes and optimizing PLM performance in large-scale automotive environments.</p>
+                    <div class="mt-4">
+                        <h5>Core Stack:</h5>
+                        <div class="d-flex flex-wrap">
+                            <span class="skill-badge">Java</span>
+                            <span class="skill-badge">C++</span>
+                            <span class="skill-badge">Oracle SQL</span>
+                            <span class="skill-badge">Git/GitHub</span>
+                            <span class="skill-badge">AWS Cloud</span>
+                            <span class="skill-badge">AWC Customization</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section py-5 bg-light">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-5">Professional Lifecycle</h2>
+            <div class="workflow-container d-none d-md-flex">
+                <div class="workflow-line"></div>
+                <div class="workflow-step" data-aos="fade-up">Requirement Analysis</div>
+                <div class="workflow-step" data-aos="fade-up" data-aos-delay="100">BMIDE Modeling</div>
+                <div class="workflow-step" data-aos="fade-up" data-aos-delay="200">ITK/SOA Coding</div>
+                <div class="workflow-step" data-aos="fade-up" data-aos-delay="300">Unit Testing</div>
+                <div class="workflow-step" data-aos="fade-up" data-aos-delay="400">Release/Deploy</div>
+            </div>
+            
+            <div class="mt-5 text-start row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card shadow-sm mb-4 border-0">
+                        <div class="card-body">
+                            <h5 class="text-primary fw-bold">Tata Technologies | Jan 2023 - Present</h5>
+                            <p>Lead developer for Java-based utilities and Teamcenter integrations. Managed source code integrity and optimized code for EBOM workflows.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="teamcenter" class="section py-5">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">PLM Project Repository</h2>
             <div class="row">
-                <div class="col-md-6">
-                    <img src="images/Profilepic.jpg" alt="Omkar" class="img-fluid rounded-circle">
+                <div class="col-md-6" data-aos="fade-up">
+                    <div class="card project-card shadow-sm p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-file-invoice fa-2x text-primary me-3"></i>
+                            <h5 class="mb-0 fw-bold">CN Automation Tool</h5>
+                        </div>
+                        <p class="small text-muted">Java-based tool automating CN status checks. Integrated Excel reporting to highlight missing model years, reducing audit time by 40%.</p>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <h2>About Me</h2>
-                    <p>
-    Experienced Teamcenter Developer with a strong background in Java and enterprise PLM systems. Specialized in Teamcenter customization using ITK, SOA, and BMIDE. Proven ability to streamline EBOM workflows, automate Change Notice (CN) reports, and develop utility scripts that integrate with enterprise databases and Teamcenter APIs. Skilled in troubleshooting, legacy migration, and enhancing performance of Teamcenter applications in large-scale automotive environments.
-</p>
-<a href="assets/resume/OD_3YR_TeamcenterDev.docx" class="btn btn-outline-primary mt-3" target="_blank">Download Resume</a>
-    <section id="experience" class="section">
-        <div class="container">
-            <h2 class="text-center">Experience</h2>
-            <div class="timeline mt-4">
-                <div class="timeline-item">
-                    <h4>Solution Developer |<a href="https://www.tatatechnologies.com/in" target="_blank"> Tata Technologies</a></h4>
-                    <p><strong>Jan 2023 - Current</strong></p>
-                    <ul>
-                        <li>Developed Java applications using Eclipse IDE and deployed them to production environments.</li>
-                        <li>Documented system design and optimized code for scalability and maintainability.</li>
-                        <li>Maintained source code using Git and GitHub repositories.</li>
-                        <li><a href="assets/certifications/Edge_GET_Program.pdf" target="_blank">EDGE-GET Programme (Java, C++)</a></li>
-                
-                    </ul>
-                </div>
-                <div class="timeline-item">
-                    <h4>Data Annotator Intern |<a href="https://digital.ideastoimpacts.com/" target="_blank"> Ideas to Impact Digital</a></h4>
-                    <p><strong>Nov 2021 - Apr 2022</strong></p>
-                    <ul>
-                        <li>Trained ML models and maintained detailed annotation records.</li>
-                        <li>Prepared comprehensive reports summarizing results.</li>
-                        <li><a href="assets/certifications/I2ID_Cirtificate.pdf" target="_blank">Internship Certificate_ Ideas to Impacts Digital Pvt. Ltd.</a></li>
-                
-                    </ul>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card project-card shadow-sm p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-database fa-2x text-primary me-3"></i>
+                            <h5 class="mb-0 fw-bold">VC_CFG Validation Tool</h5>
+                        </div>
+                        <p class="small text-muted">Shell & Oracle scripting to validate PLM configurations against CVARCOND data, ensuring data integrity across legacy migrations.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <section id="contact" class="section py-5 bg-dark text-white text-center">
+        <div class="container" data-aos="zoom-in">
+            <h2 class="fw-bold mb-4">Connect with me</h2>
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-3">
+                    <a href="mailto:Omkard7972@gmail.com" class="text-white text-decoration-none">
+                        <i class="fas fa-envelope fa-2x mb-3 text-info"></i>
+                        <p>Omkard7972@gmail.com</p>
+                    </a>
                 </div>
-            </div>
-        </div>
-         <div class="container">
-            <h2 class="row">Key Skills</h2>
-            <div class="row mt-4">
-                <div class="col-md-6">
-                    <div class="progress mb-3">
-                        <div class="progress-bar" role="progressbar" style="width: 90%;">Java</div>
-                    </div>
-                    <div class="progress mb-3">
-                        <div class="progress-bar" role="progressbar" style="width: 90%;">HTML & CSS</div>
-                    </div>
-                    <div class="progress mb-3">
-                        <div class="progress-bar" role="progressbar" style="width: 90%;">JavaScript</div>
-                    </div>
-                    <div class="progress mb-3">
-                        <div class="progress-bar" role="progressbar" style="width: 90%;">Teamcenter (ITK, SOA, BMIDE)</div>
-                    </div>
-                        <div class="progress mb-3">
-                        <div class="progress-bar" role="progressbar" style="width: 90%;">Teamcenter Custom Utilities</div>
-                    </div>
+                <div class="col-md-3">
+                    <a href="https://linkedin.com/in/omkarraj99" target="_blank" class="text-white text-decoration-none">
+                        <i class="fab fa-linkedin fa-2x mb-3 text-info"></i>
+                        <p>LinkedIn</p>
+                    </a>
                 </div>
-                <div class="col-md-6">
-                    <ul>
-                        <li>Teamcenter Customization (ITK, SOA, BMIDE)</li>
-                        <li>PLM Data Integration & EBOM Automation</li>
-                        <li>Cloud Computing (AWS)</li>
-                        <li>Database Management</li>
-                        <li>Web Security</li>
-                        <li>Source & Version Control (Git, GitHub)</li>
-                    </ul>
+                <div class="col-md-3">
+                    <a href="https://github.com/OmkarRaj99" target="_blank" class="text-white text-decoration-none">
+                        <i class="fab fa-github fa-2x mb-3 text-info"></i>
+                        <p>GitHub</p>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
-    <section id="certifications" class="section bg-light">
-        <div class="container">
-            <h2 class="text-center">Certifications</h2>
-            <ul class="list-group mt-4">
-                <li class="list-group-item"><a href="assets/certifications/AWC_Customization_certificate.pdf" target="_blank">Perform client-side customization for Active Workspace</a></li>
-                <li class="list-group-item"><a href="assets/certifications/AWS_Course_Completion_Certificate.pdf" target="_blank">AWS Cloud Practitioner Essentials</a></li>
-                <li class="list-group-item"><a href="assets/certifications/Career_Essentials_in_GitHub_Professional_Certificate.pdf" target="_blank">GitHub Professional Career Essentials</a></li>
-                <li class="list-group-item"><a href="assets/certifications/CertificateOfCompletion_Eclipse_Essential_Training.pdf" target="_blank">Eclipse Essential Training</a></li>
-                <li class="list-group-item"><a href="assets/certifications/BACKEND_LearningPath.pdf" target="_blank">Codebasher Backend Learning Path Completion </a></li>
-                <li class="list-group-item"><a href="assets/certifications/Hacking_Headlines.pdf" target="_blank">Codebasher Hacking Headline Learning Path Completion </a></li>
-           
-            </ul>
-        </div>
-    </section>
-    <section id="teamcenter" class="section">
-    <div class="container">
-        <h2 class="text-center">Teamcenter Projects</h2>
-        <div class="mt-4">
-            <ul>
-                <li><strong>CN Automation Tool:</strong> Designed a Java-based tool to automate CN status checks, fetching part release details and highlighting missing model years in Excel output.</li>
-                <li><strong>VC_CFG vs CVARCOND Validation:</strong> Developed a cron-based mismatch report tool using Oracle queries and shell scripting to validate PLM configurations.</li>
-                <li><strong>EBOM Utility Scripts:</strong> Created scripts for EBOM extraction and transformation using ITK & Java APIs, significantly reducing manual effort.</li>
-                <li><strong>Custom Property Extractor:</strong> Developed ITK utility to extract and validate specific part metadata, improving reporting accuracy for compliance.</li>
-            </ul>
-        </div>
-    </div>
-</section>
-    <section id="contact" class="section">
-        <div class="container">
-            <h2 class="text-center">Contact Me</h2>
-            <div class="text-center mt-4">
-                <p>Phone: <a href="tel:+91">9172 713 009</a></p>
-                <p>Email: <a href="mailto:Omkard7972@gmail.com">Omkard7972@gmail.com</a></p>
-                <p>GitHub: <a href="https://github.com/OmkarRaj99">github.com/OmkarRaj99</a></p>   
-                <p>LinkedIn: <a href="https://www.linkedin.com/in/omkarraj99">linkedin.com/in/omkarraj99</a></p>
-            </div>
-        </div>
-    </section>
-    <footer>
-        <p>&copy; 2024 Omkar Rajendra Deshmukh. All Rights Reserved.</p>
+
+    <footer class="py-3 bg-black text-white-50 text-center">
+        <small>&copy; 2026 Omkar Rajendra Deshmukh | Generated with PLM Precision</small>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
 </body>
 </html>
