@@ -3,297 +3,279 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Omkar Rajendra Deshmukh | PLM Architect</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <title>Omkar Rajendra Deshmukh | PLM Solution Developer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-
     <style>
         :root {
-            --primary: #00ffd5;
-            --dark-bg: #05070a;
-            --glass: rgba(255, 255, 255, 0.03);
-            --border: rgba(255, 255, 255, 0.08);
-            --text-main: #ffffff;
-            --text-muted: #8892b0;
+            --tc-blue: #005f9e; 
+            --tc-dark: #1a1c1e;
+            --tc-accent: #00ffd5;
+            --text-muted: #6c757d;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--text-main);
-            line-height: 1.8;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f4f7f9;
+            color: #333;
+            line-height: 1.7;
             overflow-x: hidden;
         }
 
         /* Airy Spacing */
-        section { padding: 160px 0; } 
-        .container { max-width: 1100px; }
+        .section-padding { padding: 100px 0; }
 
-        /* Background Decor */
-        .glow-sphere {
-            position: absolute;
-            width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(0, 255, 213, 0.05) 0%, transparent 70%);
-            z-index: -1;
-            top: -100px; right: -100px;
-        }
-
-        /* Navbar - Minimalist */
-        .navbar {
-            padding: 30px 0;
-            background: transparent;
-            transition: 0.4s;
-        }
-        .navbar.scrolled {
-            background: rgba(5, 7, 10, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 15px 0;
-        }
-
-        /* Hero - Full Screen Feel */
+        /* Hero Section */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: linear-gradient(-45deg, #051937, #004a80, #005f9e, #008793);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            color: #fff;
+            padding: 160px 0 120px;
             text-align: left;
+            clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
         }
 
-        .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 20px;
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        .hero-subtitle {
-            font-size: 1.2rem;
-            color: var(--primary);
-            font-family: 'Fira Code', monospace;
-            margin-bottom: 30px;
-            display: block;
-        }
-
-        /* Terminal - Floating Style */
+        /* Terminal Window UI */
         .terminal-window {
-            background: #0d1117;
-            border: 1px solid var(--border);
+            background: #21252b;
             border-radius: 12px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-            font-family: 'Fira Code', monospace;
-            margin-top: 50px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+            overflow: hidden;
+            font-family: 'Consolas', 'Courier New', monospace;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* Large Feature Project (STEP2CAD) */
-        .featured-project {
-            position: relative;
-            padding: 80px 0;
+        .terminal-header {
+            background: #282c34;
+            padding: 12px 18px;
+            display: flex;
+            gap: 8px;
         }
 
-        .project-number {
-            font-size: 8rem;
-            font-weight: 800;
-            color: rgba(255, 255, 255, 0.03);
-            position: absolute;
-            top: 0; left: -20px;
-            z-index: -1;
-        }
+        .dot { height: 12px; width: 12px; border-radius: 50%; display: inline-block; }
+        .red { background: #ff5f56; } .yellow { background: #ffbd2e; } .green { background: #27c93f; }
 
-        .logic-card {
-            background: var(--glass);
-            border: 1px solid var(--border);
-            padding: 40px;
-            border-radius: 24px;
-            transition: 0.4s;
-        }
-        .logic-card:hover {
-            border-color: var(--primary);
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        /* High Contrast Connection */
-        .connect-box {
-            background: white;
-            color: black;
-            padding: 100px 40px;
-            border-radius: 40px;
-            text-align: center;
-        }
-
-        .btn-main {
-            background: black;
-            color: white;
-            padding: 20px 50px;
-            border-radius: 100px;
-            font-weight: 800;
-            text-decoration: none;
+        .blink {
             display: inline-block;
-            transition: 0.3s;
-        }
-        .btn-main:hover {
-            transform: scale(1.05);
-            background: var(--primary);
-            color: black;
-        }
-
-        .blink-cursor {
-            display: inline-block;
-            width: 10px;
-            height: 20px;
-            background: var(--primary);
+            width: 8px;
+            height: 18px;
+            background: var(--tc-accent);
             margin-left: 5px;
-            animation: blink 1s infinite;
+            animation: blinker 1s step-start infinite;
             vertical-align: middle;
         }
 
-        @keyframes blink { 50% { opacity: 0; } }
+        @keyframes blinker { 50% { opacity: 0; } }
 
-        .tag {
-            color: var(--primary);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        /* Featured Project Card (Airy Layout) */
+        .featured-card {
+            background: white;
+            border-radius: 24px;
+            padding: 50px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .featured-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0,95,158,0.1); }
+
+        .tag-pill {
+            background: rgba(0, 95, 158, 0.1);
+            color: var(--tc-blue);
+            padding: 4px 15px;
+            border-radius: 50px;
+            font-size: 0.75rem;
             font-weight: 700;
-            margin-bottom: 10px;
-            display: block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .metadata-box {
+            background: #f8f9fa;
+            border-left: 4px solid var(--tc-blue);
+            padding: 20px;
+            border-radius: 0 12px 12px 0;
+        }
+
+        /* Workflow Steps */
+        .workflow-step {
+            background: white;
+            border: 2px solid var(--tc-blue);
+            padding: 15px;
+            border-radius: 12px;
+            z-index: 2;
+            width: 18%;
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: bold;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .nav-link:hover { color: var(--tc-accent) !important; }
+
+        .btn-connect {
+            background: white;
+            color: var(--tc-blue) !important;
+            font-weight: 800;
+            padding: 15px 40px;
+            border-radius: 50px;
+            transition: 0.3s;
+            border: none;
+        }
+
+        .btn-connect:hover {
+            background: var(--tc-accent);
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 255, 213, 0.3);
         }
     </style>
 </head>
 <body>
 
-    <div class="glow-sphere"></div>
-
-    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand fw-bold text-white" href="#">OR.</a>
-            <div class="ms-auto d-none d-md-block">
-                <span class="text-muted small me-4">// TEAMCENTER 14.x CERTIFIED</span>
-                <a href="#contact" class="text-primary text-decoration-none fw-bold small">GET IN TOUCH</a>
+            <a class="navbar-brand fw-bold" href="#"><i class="fas fa-terminal text-info me-2"></i> OMKAR.DEV</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">Console</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#work">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
             </div>
         </div>
     </nav>
 
-    <header class="hero">
+    <div class="hero">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-8" data-aos="fade-right">
-                    <span class="hero-subtitle">Hello, I'm Omkar Rajendra Deshmukh</span>
-                    <h1>Building Logic for <br><span class="text-primary">Modern Industry.</span></h1>
-                    <p class="lead text-muted col-md-10 mt-4">
-                        Senior PLM Developer specializing in Teamcenter 14.x. I transform complex engineering data into streamlined, production-ready digital workflows.
-                    </p>
-                    
-                    <div class="terminal-window col-md-10" data-aos="fade-up" data-aos-delay="200">
-                        <div class="p-3 border-bottom border-secondary d-flex gap-2">
-                            <div class="dot bg-danger" style="width:10px;height:10px;border-radius:50%"></div>
-                            <div class="dot bg-warning" style="width:10px;height:10px;border-radius:50%"></div>
-                            <div class="dot bg-success" style="width:10px;height:10px;border-radius:50%"></div>
+                <div class="col-lg-7" data-aos="fade-right">
+                    <h1 class="display-2 fw-bold">Engineering <br><span style="color: var(--tc-accent);">Digital Integrity.</span></h1>
+                    <p class="lead mt-4 text-white-50">Architecting PLM Solutions | Senior Developer specializing in Teamcenter 14.x, C++ ITK, and Enterprise Workflow Automation.</p>
+                    <div class="mt-5">
+                        <a href="#work" class="btn btn-connect me-3">View Portfolio</a>
+                        <a href="#contact" class="btn btn-outline-light rounded-pill px-4">Contact Me</a>
+                    </div>
+                </div>
+                <div class="col-lg-5 mt-5 mt-lg-0" data-aos="zoom-in">
+                    <div class="terminal-window">
+                        <div class="terminal-header">
+                            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
                         </div>
-                        <div class="p-4 small">
-                            <code class="text-white-50">
-                                <span class="text-primary">➜</span> init_project "STEP2CAD_Sync"<br>
-                                <span class="text-success">[OK]</span> Rule Handlers Compiled...<br>
-                                <span class="text-success">[OK]</span> Workflow Architecture Active...<br>
-                                <span class="text-success">[OK]</span> Production Deployment Synced.<br>
-                                <span class="text-primary">➜</span> status_check<br>
-                                <span class="text-info">System is operational. Ready for next sprint.</span><span class="blink-cursor"></span>
-                            </code>
+                        <div class="p-4 text-white-50 small">
+                            <p><span class="text-info">➜</span> <span class="text-success">omkar_profile.sh</span></p>
+                            <p>Status: <span class="text-warning">Senior Developer @ Tata Tech</span></p>
+                            <p>Focus: <span class="text-white">Workflow Logic & BMIDE Schema</span></p>
+                            <p>Latest: <span class="text-white">STEP2CAD Sync Deployed [PROD]</span></p>
+                            <p><span class="text-info">➜</span> <span class="blink"></span></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
+    </div>
 
-    <section id="work">
+    <section id="work" class="section-padding">
         <div class="container">
-            <div class="featured-project" data-aos="fade-up">
-                <span class="project-number">01</span>
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <span class="tag">Flagship Project</span>
-                        <h2 class="display-5 fw-bold mb-4">STEP2CAD Lifecycle Sync</h2>
-                        <p class="text-muted mb-4">
-                            This wasn't just a script; it was a full system overhaul. I owned the entire lifecycle—from the first line of <strong>C++ ITK code</strong> to the final <strong>Production deployment</strong>.
-                        </p>
-                        <ul class="list-unstyled">
-                            <li class="mb-3"><i class="fas fa-check text-primary me-3"></i> <strong>C++ Rule Handlers:</strong> Built automated validation gates.</li>
-                            <li class="mb-3"><i class="fas fa-check text-primary me-3"></i> <strong>Workflow Design:</strong> Mapped complex multi-stage release paths.</li>
-                            <li class="mb-3"><i class="fas fa-check text-primary me-3"></i> <strong>Global Sync:</strong> Deployed across DEV, QA, and PROD environments.</li>
-                        </ul>
+            <div class="mb-5" data-aos="fade-up">
+                <h6 class="text-primary fw-bold text-uppercase letter-spacing-2">The Lab</h6>
+                <h2 class="display-5 fw-bold">Featured Engineering</h2>
+            </div>
+
+            <div class="featured-card mb-5" data-aos="fade-up">
+                <div class="row g-5">
+                    <div class="col-lg-7">
+                        <span class="tag-pill">End-to-End Lifecycle Ownership</span>
+                        <h3 class="fw-bold mb-4">STEP2CAD Lifecycle Sync Implementation</h3>
+                        <p class="text-muted">I owned the entire architectural journey—from initial C++ ITK coding to full Production deployment—replacing legacy manual exports with an automated server-side engine.</p>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6 mb-3">
+                                <h6 class="fw-bold"><i class="fas fa-code text-primary me-2"></i> Logic Handlers</h6>
+                                <p class="small text-muted">Developed custom C++ ITK Rule Handlers to validate Part release status before trigger.</p>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <h6 class="fw-bold"><i class="fas fa-project-diagram text-primary me-2"></i> Workflow Arch</h6>
+                                <p class="small text-muted">Designed multi-environment templates with integrated Dispatcher services.</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="fw-bold"><i class="fas fa-rocket text-primary me-2"></i> Deployment</h6>
+                                <p class="small text-muted">Managed compilation (.so/.dll) and deployment across DEV, QA, and PROD.</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="fw-bold"><i class="fas fa-vial text-primary me-2"></i> QA & Testing</h6>
+                                <p class="small text-muted">Ensured geometry integrity via custom automated integration testing.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-5 offset-lg-1">
-                        <div class="logic-card shadow-lg">
-                            <h5 class="text-primary mb-3">Deployment Metadata</h5>
-                            <div class="d-flex justify-content-between border-bottom border-secondary py-2 small">
-                                <span>Core Language</span><span class="text-white">C++ / SOA</span>
-                            </div>
-                            <div class="d-flex justify-content-between border-bottom border-secondary py-2 small">
-                                <span>TC Environment</span><span class="text-white">v14.2 (4-Tier)</span>
-                            </div>
-                            <div class="d-flex justify-content-between border-bottom border-secondary py-2 small">
-                                <span>Automation</span><span class="text-white">Dispatcher Service</span>
-                            </div>
+                    <div class="col-lg-5">
+                        <div class="metadata-box h-100 shadow-sm">
+                            <h5 class="fw-bold mb-3"><i class="fas fa-microchip me-2"></i>Stack Details</h5>
+                            <hr>
+                            <ul class="list-unstyled small">
+                                <li class="d-flex justify-content-between mb-3"><span>Environment:</span> <strong>TC 14.x / AWC</strong></li>
+                                <li class="d-flex justify-content-between mb-3"><span>Logic:</span> <strong>C++ ITK / SOA</strong></li>
+                                <li class="d-flex justify-content-between mb-3"><span>Database:</span> <strong>Oracle SQL</strong></li>
+                                <li class="d-flex justify-content-between"><span>Integration:</span> <strong>Dispatcher Service</strong></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="row mt-5 pt-5 g-5">
-                <div class="col-md-6" data-aos="fade-up">
-                    <div class="logic-card h-100">
-                        <span class="tag">Integrity Fix</span>
-                        <h3 class="fw-bold">BOM "Smart Injector"</h3>
-                        <p class="text-muted">Solved the "Blind Injection" duplicate node bug by implementing a high-performance child-line scanning logic in C++.</p>
+            <div class="row g-4">
+                <div class="col-md-6" data-aos="fade-right">
+                    <div class="featured-card h-100 p-4">
+                        <span class="tag-pill">Integrity Fix</span>
+                        <h4 class="fw-bold">BOM "Smart Injector"</h4>
+                        <p class="text-muted small">Solved "Blind Injection" bugs by implementing child-line scanning logic, preventing 100% of redundant node creation in TC.</p>
                     </div>
                 </div>
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="logic-card h-100">
-                        <span class="tag">Performance</span>
-                        <h3 class="fw-bold">XML Pipeline Optimization</h3>
-                        <p class="text-muted">Optimized EBOM-SBOM data exchange, implementing automated staging area cleanup and high-security SFTP delivery.</p>
+                <div class="col-md-6" data-aos="fade-left">
+                    <div class="featured-card h-100 p-4">
+                        <span class="tag-pill">Automation</span>
+                        <h4 class="fw-bold">XML Pipeline Optimization</h4>
+                        <p class="text-muted small">Optimized EBOM-SBOM exchange with automated staging area cleanup and secured SFTP protocols.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact">
-        <div class="container">
-            <div class="connect-box" data-aos="zoom-in">
-                <span class="tag" style="color: #666;">Ready for the next milestone?</span>
-                <h2 class="display-4 fw-bold mb-5" style="color: #000;">Let’s build something <br>Production-Ready.</h2>
-                <div class="d-flex justify-content-center gap-3">
-                    <a href="mailto:Omkard7972@gmail.com" class="btn-main">INITIALIZE EMAIL</a>
-                </div>
-                <div class="mt-5">
-                    <a href="https://linkedin.com/in/omkarraj99" target="_blank" class="text-dark fw-bold text-decoration-none mx-3">LINKEDIN</a>
-                    <a href="#" class="text-dark fw-bold text-decoration-none mx-3">RESUME</a>
-                </div>
+    <section id="contact" class="section-padding bg-dark text-white text-center" style="clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%);">
+        <div class="container py-5" data-aos="zoom-in">
+            <h2 class="display-4 fw-bold mb-4">Initialize Connection</h2>
+            <p class="lead mb-5 text-white-50">Looking for a PLM Solution Developer with Production experience?</p>
+            <div class="d-flex justify-content-center gap-4 flex-wrap mt-5">
+                <a href="mailto:Omkard7972@gmail.com" class="btn btn-connect">
+                    <i class="fas fa-envelope me-2"></i>Email Me
+                </a>
+                <a href="https://linkedin.com/in/omkarraj99" target="_blank" class="btn btn-outline-info rounded-pill px-5">
+                    <i class="fab fa-linkedin me-2"></i>LinkedIn
+                </a>
+            </div>
+            <div class="mt-5 pt-4 text-white-50 small">
+                <p>&copy; 2026 Omkar Rajendra Deshmukh | TC 14.x Certified Solutions</p>
             </div>
         </div>
     </section>
 
-    <footer class="py-5 text-center text-muted small">
-        <div class="container">
-            <p>&copy; 2026 Omkar Rajendra Deshmukh. Built with Technical Precision.</p>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
-        
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 50) {
-                document.getElementById('mainNav').classList.add('scrolled');
-            } else {
-                document.getElementById('mainNav').classList.remove('scrolled');
-            }
-        });
     </script>
 </body>
 </html>
