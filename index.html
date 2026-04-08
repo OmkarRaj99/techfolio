@@ -279,6 +279,78 @@
     </div>
 </div>
 
+            <div class="col-md-6" data-aos="fade-left">
+                    <div class="featured-card h-100 p-4" role="button" data-bs-toggle="modal" data-bs-target="#xmlModal" style="cursor: pointer; border-right: 4px solid #28a745;">
+                    <span class="tag-pill">Automation</span>
+                    <h4 class="fw-bold">XML Pipeline Optimization <i class="fas fa-sync ms-2 text-success" style="font-size: 0.8rem;"></i></h4>
+                    <p class="text-muted small">Optimized EBOM-SBOM exchange with automated staging cleanup and secured SFTP protocols. <strong>Click to view Pipeline.</strong></p>
+                    </div>
+            </div>
+
+            <div class="modal fade" id="xmlModal" tabindex="-1" aria-hidden="true">
+                 <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content" style="background: #1a1c1e; color: white; border-radius: 20px; border: 1px solid #28a745; overflow: hidden;">
+                                <div class="modal-header border-secondary bg-dark">
+                                <h5 class="modal-title fw-bold text-success"><i class="fas fa-file-code me-2"></i> Unified EBOM-SBOM XML | Pipeline</h5>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                            <div class="modal-body p-0">
+                            <div class="row g-0">
+                                <div class="col-md-5 p-4 border-end border-secondary">
+                                <h6 class="text-success fw-bold text-uppercase" style="font-size: 0.75rem;">System Scope</h6>
+                                <p class="small text-white-50">Automates data extraction from DB2/Teamcenter and delivers synchronized XMLs to Mainframes via SFTP.</p>
+                        
+                                        <div class="mt-4">
+                                            <h6 class="text-success fw-bold text-uppercase" style="font-size: 0.75rem;">Tech Stack Implemented</h6>
+                                            <div class="bg-black p-2 rounded mt-2">
+                                            <code style="font-size: 0.8rem; color: #75beff;">
+                                            Java JAR (Modular)<br>
+                                            SQL (Join Optimization)<br>
+                                            Cron (Scheduled Staging)<br>
+                                            SFTP / Secure Copy
+                                            </code>
+                                          </div>
+                                </div>
+                            </div>
+                    
+                            <div class="col-md-7 p-4" style="background: #0d1117;">
+                            <div id="xml-console" style="height: 280px; overflow-y: auto; font-family: 'Consolas', monospace; font-size: 0.85rem; scroll-behavior: smooth;">
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </section>
+
+    
+
+    <section id="contact" class="section-padding bg-dark text-white text-center" style="clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%);">
+        <div class="container py-5" data-aos="zoom-in">
+            <h2 class="display-4 fw-bold mb-4">Initialize Connection</h2>
+            <p class="lead mb-5 text-white-50">Looking for a PLM Solution Developer with Production experience?</p>
+            <div class="d-flex justify-content-center gap-4 flex-wrap mt-5">
+                <a href="mailto:Omkard7972@gmail.com" class="btn btn-connect">
+                    <i class="fas fa-envelope me-2"></i>Email Me
+                </a>
+                <a href="https://linkedin.com/in/omkarraj99" class="btn btn-connect">
+                    <i class="fab fa-linkedin me-2"></i>LinkedIn
+                </a>
+            </div>
+            <div class="mt-5 pt-4 text-white-50 small">
+                <p>&copy; 2026 Omkar Rajendra Deshmukh | TC 14.x Certified Solutions</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
+
+    
 <script>
     const bomConsole = document.getElementById('bom-console');
     const apiSteps = [
@@ -355,75 +427,5 @@ document.getElementById('xmlModal').addEventListener('shown.bs.modal', function 
 });
     
 </script>
-            <div class="col-md-6" data-aos="fade-left">
-                    <div class="featured-card h-100 p-4" role="button" data-bs-toggle="modal" data-bs-target="#xmlModal" style="cursor: pointer; border-right: 4px solid #28a745;">
-                    <span class="tag-pill">Automation</span>
-                    <h4 class="fw-bold">XML Pipeline Optimization <i class="fas fa-sync ms-2 text-success" style="font-size: 0.8rem;"></i></h4>
-                    <p class="text-muted small">Optimized EBOM-SBOM exchange with automated staging cleanup and secured SFTP protocols. <strong>Click to view Pipeline.</strong></p>
-                    </div>
-            </div>
-
-            <div class="modal fade" id="xmlModal" tabindex="-1" aria-hidden="true">
-                 <div class="modal-dialog modal-lg modal-dialog-centered">
-                    <div class="modal-content" style="background: #1a1c1e; color: white; border-radius: 20px; border: 1px solid #28a745; overflow: hidden;">
-                                <div class="modal-header border-secondary bg-dark">
-                                <h5 class="modal-title fw-bold text-success"><i class="fas fa-file-code me-2"></i> Unified EBOM-SBOM XML | Pipeline</h5>
-                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                            <div class="modal-body p-0">
-                            <div class="row g-0">
-                                <div class="col-md-5 p-4 border-end border-secondary">
-                                <h6 class="text-success fw-bold text-uppercase" style="font-size: 0.75rem;">System Scope</h6>
-                                <p class="small text-white-50">Automates data extraction from DB2/Teamcenter and delivers synchronized XMLs to Mainframes via SFTP.</p>
-                        
-                                        <div class="mt-4">
-                                            <h6 class="text-success fw-bold text-uppercase" style="font-size: 0.75rem;">Tech Stack Implemented</h6>
-                                            <div class="bg-black p-2 rounded mt-2">
-                                            <code style="font-size: 0.8rem; color: #75beff;">
-                                            Java JAR (Modular)<br>
-                                            SQL (Join Optimization)<br>
-                                            Cron (Scheduled Staging)<br>
-                                            SFTP / Secure Copy
-                                            </code>
-                                          </div>
-                                </div>
-                            </div>
-                    
-                            <div class="col-md-7 p-4" style="background: #0d1117;">
-                            <div id="xml-console" style="height: 280px; overflow-y: auto; font-family: 'Consolas', monospace; font-size: 0.85rem; scroll-behavior: smooth;">
-                            </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-    </section>
-
-    
-
-    <section id="contact" class="section-padding bg-dark text-white text-center" style="clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%);">
-        <div class="container py-5" data-aos="zoom-in">
-            <h2 class="display-4 fw-bold mb-4">Initialize Connection</h2>
-            <p class="lead mb-5 text-white-50">Looking for a PLM Solution Developer with Production experience?</p>
-            <div class="d-flex justify-content-center gap-4 flex-wrap mt-5">
-                <a href="mailto:Omkard7972@gmail.com" class="btn btn-connect">
-                    <i class="fas fa-envelope me-2"></i>Email Me
-                </a>
-                <a href="https://linkedin.com/in/omkarraj99" class="btn btn-connect">
-                    <i class="fab fa-linkedin me-2"></i>LinkedIn
-                </a>
-            </div>
-            <div class="mt-5 pt-4 text-white-50 small">
-                <p>&copy; 2026 Omkar Rajendra Deshmukh | TC 14.x Certified Solutions</p>
-            </div>
-        </div>
-    </section>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        AOS.init({ duration: 1000, once: true });
-    </script>
 </body>
 </html>
