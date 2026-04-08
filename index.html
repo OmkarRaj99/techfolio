@@ -235,13 +235,88 @@
                 </div>
             </div>
 
-            <div class="row g-4">
-                <div class="col-md-6" data-aos="fade-right">
-                    <div class="featured-card h-100 p-4">
-                        <span class="tag-pill">Integrity Fix</span>
-                        <h4 class="fw-bold">BOM "Smart Injector"</h4>
-                        <p class="text-muted small">Solved "Blind Injection" bugs by implementing child-line scanning logic, preventing 100% of redundant node creation in TC.</p>
+            <div class="col-md-6" data-aos="fade-right">
+    <div class="featured-card h-100 p-4" role="button" data-bs-toggle="modal" data-bs-target="#bomModal" style="cursor: pointer; border-right: 4px solid var(--tc-accent);">
+        <span class="tag-pill">Integrity Fix</span>
+        <h4 class="fw-bold">BOM "Smart Injector" <i class="fas fa-microchip ms-2 text-primary" style="font-size: 0.8rem;"></i></h4>
+        <p class="text-muted small">Solved "Blind Injection" bugs by implementing child-line scanning logic. <strong>Click to view API simulation.</strong></p>
+    </div>
+</div>
+
+<div class="modal fade" id="bomModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content" style="background: #1a1c1e; color: white; border-radius: 20px; border: 1px solid var(--tc-blue); overflow: hidden;">
+            <div class="modal-header border-secondary bg-dark">
+                <h5 class="modal-title fw-bold text-info"><i class="fas fa-terminal me-2"></i> BOM Creation Utility | API Logic</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0">
+                <div class="row g-0">
+                    <div class="col-md-5 p-4 border-end border-secondary">
+                        <h6 class="text-primary fw-bold text-uppercase" style="font-size: 0.75rem;">Optimization Logic</h6>
+                        <p class="small text-white-50">Prevents duplicate Item IDs and empty BOM nodes during massive CSV/Excel imports.</p>
+                        
+                        <div class="mt-4">
+                            <h6 class="text-primary fw-bold text-uppercase" style="font-size: 0.75rem;">Core ITK Functions</h6>
+                            <div class="bg-black p-2 rounded mt-2">
+                                <code style="font-size: 0.8rem; color: var(--tc-accent);">
+                                    ITEM_find_item()<br>
+                                    ITEM_create_item()<br>
+                                    BOM_line_add_child()<br>
+                                    AOM_save_without_extensions()
+                                </code>
+                            </div>
+                        </div>
                     </div>
+                    
+                    <div class="col-md-7 p-4" style="background: #0d1117;">
+                        <div id="bom-console" style="height: 280px; overflow-y: auto; font-family: 'Consolas', monospace; font-size: 0.85rem; scroll-behavior: smooth;">
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const bomConsole = document.getElementById('bom-console');
+    const apiSteps = [
+        { t: ">> Initializing Teamcenter Session...", c: "text-muted" },
+        { t: ">> Loading Import Buffer [row_id: 402]", c: "text-white" },
+        { t: ">> Executing: ITEM_find_item('PART-0092')", c: "text-info" },
+        { t: ">> Status: NOT_FOUND (Safe to Create)", c: "text-warning" },
+        { t: ">> Calling: ITEM_create_item(...)", c: "text-info" },
+        { t: ">> SUCCESS: Created ItemRevision 001.A", c: "text-success fw-bold" },
+        { t: ">> Locking BOMWindow for update...", c: "text-muted" },
+        { t: ">> Calling: BOM_line_add_child()", c: "text-info" },
+        { t: ">> [SMART_LOGIC]: Child Link Validated.", c: "text-success" },
+        { t: ">> Data Saved to Oracle DB.", c: "text-white" },
+        { t: "----------------------------------------", c: "text-muted" },
+        { t: ">> Ready for next line entry...", c: "text-info" }
+    ];
+
+    let stepIdx = 0;
+
+    function animateBomLogic() {
+        if (stepIdx < apiSteps.length) {
+            const line = document.createElement('div');
+            line.className = apiSteps[stepIdx].c + " mb-1";
+            line.innerHTML = apiSteps[stepIdx].t;
+            bomConsole.appendChild(line);
+            stepIdx++;
+            bomConsole.scrollTop = bomConsole.scrollHeight;
+            setTimeout(animateBomLogic, 700);
+        }
+    }
+
+    // Trigger animation when modal opens
+    document.getElementById('bomModal').addEventListener('shown.bs.modal', function () {
+        bomConsole.innerHTML = ""; // Clear previous run
+        stepIdx = 0;
+        animateBomLogic();
+    });
+</script>
                 </div>
                 <div class="col-md-6" data-aos="fade-left">
                     <div class="featured-card h-100 p-4">
