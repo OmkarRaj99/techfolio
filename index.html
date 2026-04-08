@@ -138,6 +138,35 @@
             transform: scale(1.05);
             box-shadow: 0 10px 25px rgba(0, 255, 213, 0.3);
         }
+
+        /* Card Hover Effect */
+        .clickable-card {
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        border: 1px solid rgba(255,255,255,0.1);
+        position: relative;
+        }
+
+        .clickable-card:hover {
+        transform: translateY(-8px); /* Card lifts up */
+        background: rgba(255, 255, 255, 0.05); /* Subtle highlight */
+        box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+
+        /* Pulsing icon to grab attention */
+        .pulse {
+        animation: pulse-animation 2s infinite;
+        }
+
+        @keyframes pulse-animation {
+        0% { opacity: 1; }
+        50% { opacity: 0.4; }
+        100% { opacity: 1; }
+        }
+
+        /* Specific border accents you already had, moved here for cleanliness */
+        [data-bs-target="#bomModal"] { border-right: 4px solid var(--tc-accent); }
+        [data-bs-target="#xmlModal"] { border-right: 4px solid #28a745; }
     </style>
 </head>
 <body>
@@ -235,94 +264,35 @@
                 </div>
             </div>
 
+           <section class="py-5">
+    <div class="container">
+        <div class="row g-4"> 
+            
             <div class="col-md-6" data-aos="fade-right">
-    <div class="featured-card h-100 p-4" role="button" data-bs-toggle="modal" data-bs-target="#bomModal" style="cursor: pointer; border-right: 4px solid var(--tc-accent);">
-        <span class="tag-pill">Integrity Fix</span>
-        <h4 class="fw-bold">BOM "Smart Injector" <i class="fas fa-microchip ms-2 text-primary" style="font-size: 0.8rem;"></i></h4>
-        <p class="text-muted small">Solved "Blind Injection" bugs by implementing child-line scanning logic. <strong>Click to view API simulation.</strong></p>
-    </div>
-</div>
-
-<div class="modal fade" id="bomModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content" style="background: #1a1c1e; color: white; border-radius: 20px; border: 1px solid var(--tc-blue); overflow: hidden;">
-            <div class="modal-header border-secondary bg-dark">
-                <h5 class="modal-title fw-bold text-info"><i class="fas fa-terminal me-2"></i> BOM Creation Utility | API Logic</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body p-0">
-                <div class="row g-0">
-                    <div class="col-md-5 p-4 border-end border-secondary">
-                        <h6 class="text-primary fw-bold text-uppercase" style="font-size: 0.75rem;">Optimization Logic</h6>
-                        <p class="small text-white-50">Prevents duplicate Item IDs and empty BOM nodes during massive CSV/Excel imports.</p>
-                        
-                        <div class="mt-4">
-                            <h6 class="text-primary fw-bold text-uppercase" style="font-size: 0.75rem;">Core ITK Functions</h6>
-                            <div class="bg-black p-2 rounded mt-2">
-                                <code style="font-size: 0.8rem; color: var(--tc-accent);">
-                                    ITEM_find_item()<br>
-                                    ITEM_create_item()<br>
-                                    BOM_line_add_child()<br>
-                                    AOM_save_without_extensions()
-                                </code>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-7 p-4" style="background: #0d1117;">
-                        <div id="bom-console" style="height: 280px; overflow-y: auto; font-family: 'Consolas', monospace; font-size: 0.85rem; scroll-behavior: smooth;">
-                            </div>
+                <div class="featured-card h-100 p-4 clickable-card" role="button" data-bs-toggle="modal" data-bs-target="#bomModal">
+                    <span class="tag-pill">Integrity Fix</span>
+                    <h4 class="fw-bold">BOM "Smart Injector" <i class="fas fa-microchip ms-2 text-primary"></i></h4>
+                    <p class="text-muted small">Solved "Blind Injection" bugs by implementing child-line scanning logic.</p>
+                    <div class="click-hint small text-primary fw-bold mt-2">
+                        <i class="fas fa-mouse-pointer me-1 pulse"></i> Click to simulate API
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
 
-            <br></br>
             <div class="col-md-6" data-aos="fade-left">
-                    <div class="featured-card h-100 p-4" role="button" data-bs-toggle="modal" data-bs-target="#xmlModal" style="cursor: pointer; border-right: 4px solid #28a745;">
+                <div class="featured-card h-100 p-4 clickable-card" role="button" data-bs-toggle="modal" data-bs-target="#xmlModal">
                     <span class="tag-pill">Automation</span>
-                    <h4 class="fw-bold">XML Pipeline Optimization <i class="fas fa-sync ms-2 text-success" style="font-size: 0.8rem;"></i></h4>
-                    <p class="text-muted small">Optimized EBOM-SBOM exchange with automated staging cleanup and secured SFTP protocols. <strong>Click to view Pipeline.</strong></p>
-                    </div>
-            </div>
-
-            <div class="modal fade" id="xmlModal" tabindex="-1" aria-hidden="true">
-                 <div class="modal-dialog modal-lg modal-dialog-centered">
-                    <div class="modal-content" style="background: #1a1c1e; color: white; border-radius: 20px; border: 1px solid #28a745; overflow: hidden;">
-                                <div class="modal-header border-secondary bg-dark">
-                                <h5 class="modal-title fw-bold text-success"><i class="fas fa-file-code me-2"></i> Unified EBOM-SBOM XML | Pipeline</h5>
-                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                            <div class="modal-body p-0">
-                            <div class="row g-0">
-                                <div class="col-md-5 p-4 border-end border-secondary">
-                                <h6 class="text-success fw-bold text-uppercase" style="font-size: 0.75rem;">System Scope</h6>
-                                <p class="small text-white-50">Automates data extraction from DB2/Teamcenter and delivers synchronized XMLs to Mainframes via SFTP.</p>
-                        
-                                        <div class="mt-4">
-                                            <h6 class="text-success fw-bold text-uppercase" style="font-size: 0.75rem;">Tech Stack Implemented</h6>
-                                            <div class="bg-black p-2 rounded mt-2">
-                                            <code style="font-size: 0.8rem; color: #75beff;">
-                                            Java JAR (Modular)<br>
-                                            SQL (Join Optimization)<br>
-                                            Cron (Scheduled Staging)<br>
-                                            SFTP / Secure Copy
-                                            </code>
-                                          </div>
-                                </div>
-                            </div>
-                    
-                            <div class="col-md-7 p-4" style="background: #0d1117;">
-                            <div id="xml-console" style="height: 280px; overflow-y: auto; font-family: 'Consolas', monospace; font-size: 0.85rem; scroll-behavior: smooth;">
-                            </div>
+                    <h4 class="fw-bold">XML Pipeline Optimization <i class="fas fa-sync ms-2 text-success"></i></h4>
+                    <p class="text-muted small">Optimized EBOM-SBOM exchange with automated staging and secured SFTP protocols.</p>
+                    <div class="click-hint small text-success fw-bold mt-2">
+                        <i class="fas fa-bolt me-1 pulse"></i> Click to view Pipeline
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
-</div>
+</section>
     </section>
 
     
