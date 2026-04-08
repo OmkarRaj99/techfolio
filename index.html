@@ -316,18 +316,91 @@
         stepIdx = 0;
         animateBomLogic();
     });
+
+const xmlConsole = document.getElementById('xml-console');
+const xmlSteps = [
+    { t: ">> [CRON] Triggered XML Utility...", c: "text-muted" },
+    { t: ">> DB2 Connection: ESTABLISHED", c: "text-success" },
+    { t: ">> Querying Unified EBOM-SBOM attributes...", c: "text-white" },
+    { t: ">> FETCHED: <CHRYSLER_ALIAS_ID> for PART-X", c: "text-info" },
+    { t: ">> FETCHED: <designation> from USER_SUFFIX", c: "text-info" },
+    { t: ">> Validating XML Schema (XSD)...", c: "text-warning" },
+    { t: ">> XML Generation: SUCCESS", c: "text-success fw-bold" },
+    { t: ">> Initiating SFTP to Mainframe Server...", c: "text-white" },
+    { t: ">> Transferring: BENA600Z.BENA606Z.SBOM_VPMPIP", c: "text-info" },
+    { t: ">> SFTP Status: 226 Transfer Complete.", c: "text-success" },
+    { t: ">> Archiving to /ondemand_bckp/...", c: "text-muted" },
+    { t: ">> Pipeline Cycle Finished.", c: "text-success fw-bold" }
+];
+
+let xmlStepIdx = 0;
+
+function animateXmlLogic() {
+    if (xmlStepIdx < xmlSteps.length) {
+        const line = document.createElement('div');
+        line.className = xmlSteps[xmlStepIdx].c + " mb-1";
+        line.innerHTML = xmlSteps[xmlStepIdx].t;
+        xmlConsole.appendChild(line);
+        xmlStepIdx++;
+        xmlConsole.scrollTop = xmlConsole.scrollHeight;
+        setTimeout(animateXmlLogic, 600);
+    }
+}
+
+// Trigger XML animation
+document.getElementById('xmlModal').addEventListener('shown.bs.modal', function () {
+    xmlConsole.innerHTML = ""; 
+    xmlStepIdx = 0;
+    animateXmlLogic();
+});
+    
 </script>
-                </div>
-                <div class="col-md-6" data-aos="fade-left">
-                    <div class="featured-card h-100 p-4">
-                        <span class="tag-pill">Automation</span>
-                        <h4 class="fw-bold">XML Pipeline Optimization</h4>
-                        <p class="text-muted small">Optimized EBOM-SBOM exchange with automated staging area cleanup and secured SFTP protocols.</p>
+            <div class="col-md-6" data-aos="fade-left">
+                    <div class="featured-card h-100 p-4" role="button" data-bs-toggle="modal" data-bs-target="#xmlModal" style="cursor: pointer; border-right: 4px solid #28a745;">
+                    <span class="tag-pill">Automation</span>
+                    <h4 class="fw-bold">XML Pipeline Optimization <i class="fas fa-sync ms-2 text-success" style="font-size: 0.8rem;"></i></h4>
+                    <p class="text-muted small">Optimized EBOM-SBOM exchange with automated staging cleanup and secured SFTP protocols. <strong>Click to view Pipeline.</strong></p>
+                    </div>
+            </div>
+
+            <div class="modal fade" id="xmlModal" tabindex="-1" aria-hidden="true">
+                 <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content" style="background: #1a1c1e; color: white; border-radius: 20px; border: 1px solid #28a745; overflow: hidden;">
+                                <div class="modal-header border-secondary bg-dark">
+                                <h5 class="modal-title fw-bold text-success"><i class="fas fa-file-code me-2"></i> Unified EBOM-SBOM XML | Pipeline</h5>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                            <div class="modal-body p-0">
+                            <div class="row g-0">
+                                <div class="col-md-5 p-4 border-end border-secondary">
+                                <h6 class="text-success fw-bold text-uppercase" style="font-size: 0.75rem;">System Scope</h6>
+                                <p class="small text-white-50">Automates data extraction from DB2/Teamcenter and delivers synchronized XMLs to Mainframes via SFTP.</p>
+                        
+                                        <div class="mt-4">
+                                            <h6 class="text-success fw-bold text-uppercase" style="font-size: 0.75rem;">Tech Stack Implemented</h6>
+                                            <div class="bg-black p-2 rounded mt-2">
+                                            <code style="font-size: 0.8rem; color: #75beff;">
+                                            Java JAR (Modular)<br>
+                                            SQL (Join Optimization)<br>
+                                            Cron (Scheduled Staging)<br>
+                                            SFTP / Secure Copy
+                                            </code>
+                                          </div>
+                                </div>
+                            </div>
+                    
+                            <div class="col-md-7 p-4" style="background: #0d1117;">
+                            <div id="xml-console" style="height: 280px; overflow-y: auto; font-family: 'Consolas', monospace; font-size: 0.85rem; scroll-behavior: smooth;">
+                            </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
     </section>
+
+    
 
     <section id="contact" class="section-padding bg-dark text-white text-center" style="clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%);">
         <div class="container py-5" data-aos="zoom-in">
