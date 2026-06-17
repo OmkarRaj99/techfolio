@@ -179,6 +179,79 @@
             border-color: var(--tc-accent);
             color: var(--tc-accent);
         }
+        /* Slider Ticker Wrapper */
+.marquee-wrapper {
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 30px 0;
+    background: #ffffff;
+    box-shadow: inset 0 10px 30px rgba(0,0,0,0.03), inset 0 -10px 30px rgba(0,0,0,0.03);
+    position: relative;
+}
+
+/* Gradient overlays to fade images smoothly at edges */
+.marquee-wrapper::before, .marquee-wrapper::after {
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 150px;
+    z-index: 2;
+    top: 0;
+    pointer-events: none;
+}
+.marquee-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, #f4f7f9 0%, rgba(244,247,249,0) 100%);
+}
+.marquee-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, #f4f7f9 0%, rgba(244,247,249,0) 100%);
+}
+
+/* The actual moving container */
+.marquee-track {
+    display: inline-flex;
+    gap: 40px;
+    animation: scrollMarquee 25s linear infinite;
+}
+
+/* Pause animation on hover so recruiters can look closely */
+.marquee-wrapper:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+/* Slide item styling */
+.cert-slide {
+    width: 280px;
+    height: 200px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    border: 1px solid rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.cert-slide:hover {
+    transform: scale(1.05);
+    border-color: var(--tc-blue);
+}
+
+.cert-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Continuous scrolling animation logic */
+@keyframes scrollMarquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 20px)); } /* Adjusts for gap half-way */
+}
     </style>
 </head>
 <body>
@@ -334,6 +407,85 @@
         </div>
     </div>
 </div>
+
+<!-- ================= Certifications Ribbon Showcase ================= -->
+            <div class="mt-5 pt-5" data-aos="fade-up">
+                <div class="text-center mb-4">
+                    <h4 class="fw-bold"><i class="fas fa-ribbon text-primary me-2"></i>Verified Technical Credentials</h4>
+                    <p class="text-muted small">Hover to pause the strip | Click to view the full verification PDF file</p>
+                </div>
+                
+                <div class="marquee-wrapper">
+                    <div class="marquee-track">
+                        
+                        <!-- ====== SET 1 (Original List) ====== -->
+                        <div class="cert-slide" onclick="window.open('assets/certifications/AWC_Customization_certificate.pdf', '_blank')" title="Active Workspace Client Customization">
+                            <img src="assets/images/AWC_Customization_certificate.jpg" alt="AWC Customization">
+                        </div>
+                        <div class="cert-slide" onclick="window.open('assets/certifications/Edge_GET_Program.pdf', '_blank')" title="Tata Technologies Edge GET Program (Java & C++)">
+                            <img src="assets/images/Edge_GET_Program.jpg" alt="Edge GET Program">
+                        </div>
+                        <div class="cert-slide" onclick="window.open('assets/certifications/AWS_Course_Completion_Certificate.pdf', '_blank')" title="AWS Cloud Architecture Foundations">
+                            <img src="assets/images/AWS_Course_Completion_Certificate.jpg" alt="AWS Cloud Certification">
+                        </div>
+                        <div class="cert-slide" onclick="window.open('assets/certifications/Career_Essentials_in_GitHub_Professional_Certificate.pdf', '_blank')" title="GitHub Professional Career Essentials">
+                            <img src="assets/images/Career_Essentials_in_GitHub_Professional_Certificate.jpg" alt="GitHub Professional Certification">
+                        </div>
+                        <div class="cert-slide" onclick="window.open('assets/certifications/I2ID_Cirtificate.pdf', '_blank')" title="Ideas To Impacts Engineering Internship">
+                            <img src="assets/images/I2ID_Cirtificate.jpg" alt="I2ID Internship Certificate">
+                        </div>
+                        <div class="cert-slide" onclick="window.open('assets/certifications/BACKEND_LearningPath.pdf', '_blank')" title="Backend Ecosystem Engineering Path">
+                            <img src="assets/images/BACKEND_LearningPath.jpg" alt="Backend Learning Path">
+                        </div>
+                        <div class="cert-slide" onclick="window.open('assets/certifications/Codebash_Backend_Learning_path.pdf', '_blank')" title="Codebashing Secure Architecture Path">
+                            <img src="assets/images/Codebash_Backend_Learning_path.jpg" alt="Codebash Backend Learning Path">
+                        </div>
+                        <div class="cert-slide" onclick="window.open('assets/certifications/Hacking_Headlines.pdf', '_blank')" title="Secure Design Coding Principles">
+                            <img src="assets/images/Hacking_Headlines.jpg" alt="Hacking Headlines Security">
+                        </div>
+                        <div class="cert-slide" onclick="window.open('assets/certifications/CertificateOfCompletion_GitHub Models Prototyping with AI Models.pdf', '_blank')" title="GitHub AI Models Prototyping">
+                            <img src="assets/images/GitHub_Models_Prototyping.jpg" alt="AI Models Prototyping">
+                        </div>
+                        <div class="cert-slide" onclick="window.open('assets/certifications/CertificateOfCompletion_Eclipse_Essential_Training.pdf', '_blank')" title="Eclipse Enterprise IDE Optimization">
+                            <img src="assets/images/Eclipse_Essential_Training.jpg" alt="Eclipse Essential Training">
+                        </div>
+
+                        <!-- ====== SET 2 (Duplicate for Continuous Loop Effect) ====== -->
+                        <div class="cert-slide" onclick="window.open('assets/certifications/AWC_Customization_certificate.pdf', '_blank')" title="Active Workspace Client Customization">
+                            <img src="assets/images/AWC_Customization_certificate.jpg" alt="AWC Customization">
+                        </div>
+                        <div class="cert-slide" onclick="window.open('assets/certifications/Edge_GET_Program.pdf', '_blank')" title="Tata Technologies Edge GET Program (Java & C++)">
+                            <img src="assets/images/Edge_GET_Program.jpg" alt="Edge GET Program">
+                        </div>
+                        <div class="cert-slide" onclick="window.open('assets/certifications/AWS_Course_Completion_Certificate.pdf', '_blank')" title="AWS Cloud Architecture Foundations">
+                            <img src="assets/images/AWS_Course_Completion_Certificate.jpg" alt="AWS Cloud Certification">
+                        </div>
+                        <div class="cert-slide" onclick="window.open('assets/certifications/Career_Essentials_in_GitHub_Professional_Certificate.pdf', '_blank')" title="GitHub Professional Career Essentials">
+                            <img src="assets/images/Career_Essentials_in_GitHub_Professional_Certificate.jpg" alt="GitHub Professional Certification">
+                        </div>
+                        <div class="cert-slide" onclick="window.open('assets/certifications/I2ID_Cirtificate.pdf', '_blank')" title="Ideas To Impacts Engineering Internship">
+                            <img src="assets/images/I2ID_Cirtificate.jpg" alt="I2ID Internship Certificate">
+                        </div>
+                        <div class="cert-slide" onclick="window.open('assets/certifications/BACKEND_LearningPath.pdf', '_blank')" title="Backend Ecosystem Engineering Path">
+                            <img src="assets/images/BACKEND_LearningPath.jpg" alt="Backend Learning Path">
+                        </div>
+                        <div class="cert-slide" onclick="window.open('assets/certifications/Codebash_Backend_Learning_path.pdf', '_blank')" title="Codebashing Secure Architecture Path">
+                            <img src="assets/images/Codebash_Backend_Learning_path.jpg" alt="Codebash Backend Learning Path">
+                        </div>
+                        <div class="cert-slide" onclick="window.open('assets/certifications/Hacking_Headlines.pdf', '_blank')" title="Secure Design Coding Principles">
+                            <img src="assets/images/Hacking_Headlines.jpg" alt="Hacking Headlines Security">
+                        </div>
+                        <div class="cert-slide" onclick="window.open('assets/certifications/CertificateOfCompletion_GitHub Models Prototyping with AI Models.pdf', '_blank')" title="GitHub AI Models Prototyping">
+                            <img src="assets/images/GitHub_Models_Prototyping.jpg" alt="AI Models Prototyping">
+                        </div>
+                        <div class="cert-slide" onclick="window.open('assets/certifications/CertificateOfCompletion_Eclipse_Essential_Training.pdf', '_blank')" title="Eclipse Enterprise IDE Optimization">
+                            <img src="assets/images/Eclipse_Essential_Training.jpg" alt="Eclipse Essential Training">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
             
     </section>
 
@@ -361,6 +513,7 @@
                 <p>&copy; 2026 Omkar Rajendra Deshmukh | TC 14.x Certified Solutions</p>
             </div>
         </div>
+        
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
